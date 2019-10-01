@@ -7,17 +7,20 @@ function Game () {
   this.DIM_X = 900;
   this.DIM_Y = 600;
   this.NUM_BIRDS = 10;
-  this.birds = [];
-  this.boats = [];
   this.NUM_BOATS = 3;
-  this.addBirds();
+  this.enemies = [];
+  // this.boats = [];
+  this.addEnemies();
   // this.addBoats();
   this.ship = new Ship(this.randomPosition(), this);
 }
 
-Game.prototype.addBirds = function() {
+Game.prototype.addEnemies = function() {
   for(let i = 0; i < this.NUM_BIRDS; i++) {
-    this.birds.push(new Bird(this.randomPosition(), this));
+    this.enemies.push(new Bird(this.randomPosition(), this));
+  }
+  for(let i = 0; i < this.NUM_BOATS; i++) {
+    this.enemies.push(new Boat(this.randomPosition(), this));
   }
 };
 
@@ -74,18 +77,18 @@ Game.prototype.step = function() {
 };
 
 Game.prototype.remove = function(obj) {
-  this.birds = this.birds.filter( function (el) {
+  this.enemies = this.enemies.filter( function (el) {
     return el !== obj;
   });
 };
 
 Game.prototype.allObjects = function() {
   let objects = [this.ship];
-  return this.birds.concat(objects);
+  return this.enemies.concat(objects);
 };
 
 Game.prototype.add = function(obj) {
-    this.birds.push(obj);
+    this.enemies.push(obj);
 };
 
 
