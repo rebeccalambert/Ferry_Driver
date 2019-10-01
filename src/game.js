@@ -3,8 +3,8 @@ const Util = require("./util");
 const Ship = require("./ship");
 
 function Game () {
-  this.DIM_X = 600;
-  this.DIM_Y = 400;
+  this.DIM_X = 900;
+  this.DIM_Y = 700;
   this.NUM_BOATS = 5;
   this.boats = [];
   this.addBoat();
