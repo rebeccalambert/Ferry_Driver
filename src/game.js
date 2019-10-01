@@ -1,19 +1,23 @@
 const Boat = require("./boat");
 const Util = require("./util");
 const Ship = require("./ship");
+const Bird = require("./bird");
 
 function Game () {
   this.DIM_X = 900;
   this.DIM_Y = 600;
-  this.NUM_BOATS = 5;
+  this.NUM_BIRDS = 10;
+  this.birds = [];
   this.boats = [];
-  this.addBoats();
+  this.NUM_BOATS = 3;
+  this.addBirds();
+  // this.addBoats();
   this.ship = new Ship(this.randomPosition(), this);
 }
 
-Game.prototype.addBoats = function() {
-  for(let i = 0; i < this.NUM_BOATS; i++) {
-    this.boats.push(new Boat(this.randomPosition(), this));
+Game.prototype.addBirds = function() {
+  for(let i = 0; i < this.NUM_BIRDS; i++) {
+    this.birds.push(new Bird(this.randomPosition(), this));
   }
 };
 
@@ -66,22 +70,45 @@ Game.prototype.checkCollisions = function() {
 Game.prototype.step = function() {
   this.moveObjects();
   this.checkCollisions();
+  
 };
 
 Game.prototype.remove = function(obj) {
-  this.boats = this.boats.filter( function (el) {
+  this.birds = this.birds.filter( function (el) {
     return el !== obj;
   });
 };
 
 Game.prototype.allObjects = function() {
   let objects = [this.ship];
-  return this.boats.concat(objects);
+  return this.birds.concat(objects);
 };
 
 Game.prototype.add = function(obj) {
-    this.boats.push(obj);
+    this.birds.push(obj);
 };
+
+
+// Game.prototype.addBoats = function() {
+//   for(let i = 0; i < this.NUM_BOATS; i++) {
+//     this.boats.push(new Boat(this.randomPosition(), this));
+//   }
+// };
+
+// Game.prototype.remove = function(obj) {
+//   this.boats = this.boats.filter( function (el) {
+//     return el !== obj;
+//   });
+// };
+
+// Game.prototype.allObjects = function() {
+//   let objects = [this.ship];
+//   return this.boats.concat(objects);
+// };
+
+// Game.prototype.add = function(obj) {
+//     this.boats.push(obj);
+// };
 
 
 module.exports = Game;

@@ -14,9 +14,29 @@ function Boat (pos, game) {
 Boat.prototype.collideWith = function (otherObject) {
   if (otherObject instanceof Ship) {
     otherObject.relocate();
-  // } else {
-  //   MovingObject.call(this,{pos: pos.pos, vel: this.RANDOMVECTOR, color: this.COLOR, radius: this.RADIUS, game: game});
   }
+  // if (otherObject instanceof Boat) {
+  //   this.shiftDirection();
+// }
 };
+
+// Boat.prototype.shiftDirection = function () {
+  // if ((this.vel[0] < 0) && (this.vel[1] > 0)) {
+  //   this.vel[1] = this.vel - .1
+  // }
+  // if ((this.vel[0] < 0) && (this.vel[1] < 0)) {
+  //   this.vel[0] = this.vel - .1
+  // }
+  // if ((this.vel[0] > 0) && (this.vel[1] > 0)) {
+  //   this.vel[0] = this.vel - .1
+  // }
+  // if ((this.vel[0] < 0) && (this.vel[1] < 0)) {
+  //   this.vel[1] = this.vel - .1
+  // }
+// }
+
+Boat.prototype.avoidBoats = function (otherObject) {
+  
+}
 
 module.exports = Boat;
