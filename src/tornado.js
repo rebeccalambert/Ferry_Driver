@@ -13,12 +13,9 @@ function Tornado (pos, game) {
 
 Tornado.prototype.collideWith = function (otherObject) {
   if (otherObject instanceof Ship) {
-    // otherObject.relocate();
-    otherObject.vel[0] = (otherObject.vel[0] * -1)
-    otherObject.vel[1] = (otherObject.vel[1] * -1) 
-
-    // otherObject.vel[0] = (otherObject.vel[0] * .9)
-    // otherObject.vel[1] = (otherObject.vel[1] * .9)  
+    // otherObject.vel[0] = (otherObject.vel[0] * -1)
+    // otherObject.vel[1] = (otherObject.vel[1] * -1) 
+    otherObject.vel = Util.randomVec(Math.random()*3);
     }
 };
 
