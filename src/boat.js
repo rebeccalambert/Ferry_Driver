@@ -6,7 +6,7 @@ Util.inherits(Boat, MovingObject);
 
 function Boat (pos, game) {
   this.COLOR = "grey";
-  this.RADIUS = 15;
+  this.RADIUS = 12;
   this.RANDOMVECTOR = Util.randomVec(Math.random()*3);
   MovingObject.call(this,{pos: pos.pos, vel: [Util.getRandomInt(6), 0], color: this.COLOR, radius: this.RADIUS, game: game});
 }

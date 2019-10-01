@@ -2,12 +2,14 @@ const Boat = require("./boat");
 const Util = require("./util");
 const Ship = require("./ship");
 const Bird = require("./bird");
+const Tornado = require("./tornado");
 
 function Game () {
   this.DIM_X = 900;
   this.DIM_Y = 600;
-  this.NUM_BIRDS = 10;
-  this.NUM_BOATS = 3;
+  this.NUM_BIRDS = 7;
+  this.NUM_BOATS = 4;
+  this.NUM_TORNADOS = 3;
   this.enemies = [];
   // this.boats = [];
   this.addEnemies();
@@ -21,6 +23,9 @@ Game.prototype.addEnemies = function() {
   }
   for(let i = 0; i < this.NUM_BOATS; i++) {
     this.enemies.push(new Boat(this.randomPosition(), this));
+  }
+  for(let i = 0; i < this.NUM_TORNADOS; i++) {
+    this.enemies.push(new Tornado(this.randomPosition(), this));
   }
 };
 
