@@ -6,7 +6,7 @@ Util.inherits(Ship, MovingObject);
 function Ship (pos, game) {
   this.RADIUS = 10;
   this.COLOR = "purple";
-  this.SPEED = 5;
+  this.SPEED = 1;
   MovingObject.call(this, {pos: pos.pos, vel: [0, 0], color: this.COLOR, radius: this.RADIUS, game: game });
 }
 
