@@ -14,8 +14,8 @@ function Boat (pos, game) {
 Boat.prototype.collideWith = function (otherObject) {
   if (otherObject instanceof Ship) {
     otherObject.relocate();
-  } else {
-    MovingObject.call(this,{pos: pos.pos, vel: this.RANDOMVECTOR, color: this.COLOR, radius: this.RADIUS, game: game});
+  // } else {
+  //   MovingObject.call(this,{pos: pos.pos, vel: this.RANDOMVECTOR, color: this.COLOR, radius: this.RADIUS, game: game});
   }
 };
 

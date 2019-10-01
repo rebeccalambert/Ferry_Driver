@@ -21,9 +21,7 @@ MovingObject.prototype.draw = function(ctx) {
 MovingObject.prototype.move = function () {
   this.pos[0] += this.vel[0];
   this.pos[1] += this.vel[1];
-  // if (!(this instanceof Ship)) {
-    this.pos = this.game.wrap(this.pos);
-  // }
+  this.pos = this.game.wrap(this.pos);
 };
 
 MovingObject.prototype.isCollidedWith = function(otherObject) {
@@ -33,6 +31,9 @@ MovingObject.prototype.isCollidedWith = function(otherObject) {
     return false;
   }
 };
+
+// MovingObject.prototype.collideWith = function (otherObject) {
+// };
 
 
 module.exports = MovingObject;

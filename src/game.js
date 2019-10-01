@@ -4,14 +4,14 @@ const Ship = require("./ship");
 
 function Game () {
   this.DIM_X = 900;
-  this.DIM_Y = 700;
+  this.DIM_Y = 600;
   this.NUM_BOATS = 5;
   this.boats = [];
-  this.addBoat();
+  this.addBoats();
   this.ship = new Ship(this.randomPosition(), this);
 }
 
-Game.prototype.addBoat = function() {
+Game.prototype.addBoats = function() {
   for(let i = 0; i < this.NUM_BOATS; i++) {
     this.boats.push(new Boat(this.randomPosition(), this));
   }
@@ -72,9 +72,6 @@ Game.prototype.remove = function(obj) {
   this.boats = this.boats.filter( function (el) {
     return el !== obj;
   });
-//   this.bullets = this.bullets.filter ( function (el) {
-//     return el !== obj;
-//   });
 };
 
 Game.prototype.allObjects = function() {
@@ -82,13 +79,9 @@ Game.prototype.allObjects = function() {
   return this.boats.concat(objects);
 };
 
-// Game.prototype.add = function(obj) {
-//   if (obj instanceof Boat) {
-//     this.boats.push(obj);
-//   } else if (obj instanceof Bullet) {
-//     this.bullets.push(obj);
-//   }
-// };
+Game.prototype.add = function(obj) {
+    this.boats.push(obj);
+};
 
 
 module.exports = Game;
