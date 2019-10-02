@@ -1,6 +1,7 @@
 const Util = require("./util");
 const MovingObject = require("./moving_object");
 const Ship = require("./ship");
+const Game = require("./game");
 
 Util.inherits(Token, MovingObject);
 
@@ -12,6 +13,7 @@ function Token (pos, game) {
 
 Token.prototype.collideWith = function (otherObject) {
   if (otherObject instanceof Ship) {
+    otherObject.points += 1;
     this.relocate();
   }
 };

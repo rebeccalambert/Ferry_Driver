@@ -14,12 +14,30 @@ function Game () {
   this.NUM_TOKENS = 1;
   this.enemies = [];
   this.tokens = [];
+  this.score = 0;
+  this.drawScore();
   // this.boats = [];
   this.addEnemies();
   // this.addTokens();
   // this.addBoats();
   this.ship = new Ship(this.randomPosition(), this);
 }
+
+
+Game.prototype.drawScore = function() {
+  let canvas = document.getElementById('game-canvas');
+  let ctx = canvas.getContext('2d');
+  ctx.font = "16px Arial";
+  ctx.fillStyle = "#0095DD";
+  ctx.fillText("Score: "+ this.score, 8, 20);
+}
+
+// Display.prototype.drawLives = function (context) {
+//   for (var i = this.game.lives; i > 0; i--) {
+//     var xCoord = 360 + (i * 50);
+//     context.drawImage(this.heartImage, xCoord, 525);
+//   }
+// }
 
 Game.prototype.addEnemies = function() {
   for(let i = 0; i < this.NUM_BIRDS; i++) {

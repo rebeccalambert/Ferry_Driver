@@ -10,10 +10,11 @@ window.addEventListener('DOMContentLoaded', function(){
   let ctx = canvas.getContext('2d');
   let game_view = new GameView(ctx);
   game_view.start();
-
   window.ctx = ctx;
   window.game_view = game_view;
 });
+
+
 
 window.MovingObject = MovingObject;
 window.Boat = Boat;
