@@ -3,6 +3,7 @@ const Util = require("./util");
 const Ship = require("./ship");
 const Bird = require("./bird");
 const Tornado = require("./tornado");
+const Token = require("./token");
 
 function Game () {
   this.DIM_X = 900;
@@ -10,9 +11,12 @@ function Game () {
   this.NUM_BIRDS = 7;
   this.NUM_BOATS = 4;
   this.NUM_TORNADOS = 3;
+  this.NUM_TOKENS = 1;
   this.enemies = [];
+  this.tokens = [];
   // this.boats = [];
   this.addEnemies();
+  // this.addTokens();
   // this.addBoats();
   this.ship = new Ship(this.randomPosition(), this);
 }
@@ -27,7 +31,16 @@ Game.prototype.addEnemies = function() {
   for(let i = 0; i < this.NUM_TORNADOS; i++) {
     this.enemies.push(new Tornado(this.randomPosition(), this));
   }
+  for(let i = 0; i < this.NUM_TOKENS; i++) {
+    this.enemies.push(new Token(this.randomPosition(), this));
+  }
 };
+
+// Game.prototype.addTokens = function() {
+//   for(let i = 0; i < this.NUM_TOKENS; i++) {
+//     this.tokens.push(new Token(this.randomPosition(), this));
+//   }
+// }
 
 Game.prototype.randomPosition = function() {
   return { pos: [Util.getRandomInt(this.DIM_X), Util.getRandomInt(this.DIM_Y) ]};
@@ -95,28 +108,6 @@ Game.prototype.allObjects = function() {
 Game.prototype.add = function(obj) {
     this.enemies.push(obj);
 };
-
-
-// Game.prototype.addBoats = function() {
-//   for(let i = 0; i < this.NUM_BOATS; i++) {
-//     this.boats.push(new Boat(this.randomPosition(), this));
-//   }
-// };
-
-// Game.prototype.remove = function(obj) {
-//   this.boats = this.boats.filter( function (el) {
-//     return el !== obj;
-//   });
-// };
-
-// Game.prototype.allObjects = function() {
-//   let objects = [this.ship];
-//   return this.boats.concat(objects);
-// };
-
-// Game.prototype.add = function(obj) {
-//     this.boats.push(obj);
-// };
 
 
 module.exports = Game;

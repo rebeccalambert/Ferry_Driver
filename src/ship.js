@@ -1,5 +1,6 @@
 const Util = require("./util");
 const MovingObject = require("./moving_object");
+const Token = require("./token");
 
 Util.inherits(Ship, MovingObject);
 
@@ -20,5 +21,10 @@ Ship.prototype.power = function(impulse) {
   this.vel[1] += (impulse[1]*this.SPEED);
 };
 
+// Ship.prototype.collideWith = function (otherObject) {
+//   if (otherObject instanceof Token) {
+//     otherObject.relocate();
+//     }
+// };
 
 module.exports = Ship;

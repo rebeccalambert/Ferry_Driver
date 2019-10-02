@@ -5,7 +5,7 @@ const Ship = require("./ship");
 Util.inherits(Bird, MovingObject);
 
 function Bird (pos, game) {
-  this.COLOR = "yellow";
+  this.COLOR = "white";
   this.RADIUS = 8;
   this.RANDOMVECTOR = Util.randomVec(Math.random()*3);
   MovingObject.call(this,{pos: pos.pos, vel: this.RANDOMVECTOR, color: this.COLOR, radius: this.RADIUS, game: game});
