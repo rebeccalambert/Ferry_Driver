@@ -15,7 +15,7 @@ Tornado.prototype.collideWith = function (otherObject) {
   if (otherObject instanceof Ship) {
     // otherObject.vel[0] = (otherObject.vel[0] * -1)
     // otherObject.vel[1] = (otherObject.vel[1] * -1) 
-    otherObject.vel = Util.randomVec(Math.random()*3);
+    otherObject.vel = Util.randomVec(Math.random()*6);
     }
 };
 

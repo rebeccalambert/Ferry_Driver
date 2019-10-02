@@ -1,6 +1,5 @@
 const Util = require("./util");
 const MovingObject = require("./moving_object");
-const Token = require("./token");
 
 Util.inherits(Ship, MovingObject);
 
