@@ -4,6 +4,7 @@ const Ship = require("./ship");
 const Bird = require("./bird");
 const Tornado = require("./tornado");
 const Token = require("./token");
+const FerryTerminal = require("./ferry_terminal");
 
 class Game {
   constructor () {
@@ -41,6 +42,7 @@ class Game {
     for(let i = 0; i < this.NUM_TOKENS; i++) {
       this.enemies.push(new Token(this.randomPosition(), this));
     }
+    // this.enemies.push(new FerryTerminal(this.randomPosition(), this));
   }
 
   randomPosition () {

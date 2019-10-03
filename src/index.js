@@ -12,6 +12,8 @@ window.addEventListener('DOMContentLoaded', function(){
   game_view.start();
   window.ctx = ctx;
   window.game_view = game_view;
+
+  ctx.fillRect(100, 100, 100, 100)
 });
 
 

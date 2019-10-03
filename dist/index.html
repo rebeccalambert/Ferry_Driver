@@ -5,14 +5,62 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Ferry Driver</title>
-  <!-- <script src="../keymaster.js"></script> -->
+  <style type="text/css">
+
+  body {
+    background-color: lightseagreen;
+    /* background-repeat: no-repeat; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .game-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Arial Black", Gadget, sans-serif;
+    color: whitesmoke;
+	
+
+
+  }
+    canvas {
+      background-image: url(water.png); 
+      border: 10px solid grey;
+      height: 100%;
+      /* height: 70%; */
+      z-index: -1;
+    }
+
+    .side-text {
+      color: whitesmoke;
+      border-radius: 6px;
+      font-family: "Arial Black", Gadget, sans-serif;
+      padding: 1%;
+      margin: 2%;
+      border: 1px solid grey;
+      background-color: grey;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+	
+
+    }
+
+  </style>
+  <script src="../keymaster.js"></script>
 </head>
 <body>
-  <h1>Ferry Driver</h1>
-  <script src="../keymaster.js"></script>
-
-  <!-- <canvas style="background-image: url(water.png); border: 20px solid rgb(131, 89, 34);" id="game-canvas" width="900" height="700"></canvas> -->
-  <canvas style="background-image: url(water.png); border: 10px solid grey;" id="game-canvas" width="900" height="600"></canvas>
+  <span class="side-text">
+    <p>Pause</p>
+    <p>Quit</p>
+    <p>Instructions</p>
+  </span>
+  <span class="game-content">
+    <h1>Ferry Driver</h1>
+    <canvas id="game-canvas" width="900" height="600"></canvas>
+  </span>
   <script src="main.js"></script>
 </body>
 </html>
