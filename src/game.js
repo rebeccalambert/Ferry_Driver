@@ -14,13 +14,12 @@ function Game () {
   this.NUM_TOKENS = 1;
   this.enemies = [];
   this.tokens = [];
-  this.score = 0;
-  this.drawScore();
   // this.boats = [];
   this.addEnemies();
   // this.addTokens();
   // this.addBoats();
   this.ship = new Ship(this.randomPosition(), this);
+  this.drawScore();
 }
 
 
@@ -29,7 +28,7 @@ Game.prototype.drawScore = function() {
   let ctx = canvas.getContext('2d');
   ctx.font = "16px Arial";
   ctx.fillStyle = "#0095DD";
-  ctx.fillText("Score: "+ this.score, 8, 20);
+  ctx.fillText("Score: "+ this.ship.points, 8, 20);
 }
 
 // Display.prototype.drawLives = function (context) {

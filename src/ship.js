@@ -8,6 +8,7 @@ function Ship (pos, game) {
   this.COLOR = "purple";
   this.SPEED = 1;
   this.points = 0;
+  this.health = 100;
   MovingObject.call(this, {pos: pos.pos, vel: [0, 0], color: this.COLOR, radius: this.RADIUS, game: game });
 }
 

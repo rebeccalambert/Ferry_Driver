@@ -14,6 +14,7 @@ function Boat (pos, game) {
 Boat.prototype.collideWith = function (otherObject) {
   if (otherObject instanceof Ship) {
     otherObject.relocate();
+    otherObject.health -=50;
   }
 };
 
