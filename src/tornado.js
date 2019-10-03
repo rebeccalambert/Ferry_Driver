@@ -2,26 +2,24 @@ const Util = require("./util");
 const MovingObject = require("./moving_object");
 const Ship = require("./ship");
 
-Util.inherits(Tornado, MovingObject);
-
-function Tornado (pos, game) {
-  this.COLOR = "blue";
-  this.RADIUS = 15;
-  this.RANDOMVECTOR = Util.randomVec(Math.random()*3);
-  MovingObject.call(this,{pos: pos.pos, vel: this.RANDOMVECTOR, color: this.COLOR, radius: this.RADIUS, game: game});
-}
-
-Tornado.prototype.collideWith = function (otherObject) {
-  if (otherObject instanceof Ship) {
-    // otherObject.vel[0] = (otherObject.vel[0] * -1)
-    // otherObject.vel[1] = (otherObject.vel[1] * -1) 
-    otherObject.vel = Util.randomVec(Math.random()*6);
-    otherObject.health -= 20;
+class Tornado extends MovingObject {
+  constructor (pos, game) {
+    let options = {
+      pos: pos.pos,
+      vel: Util.randomVec(Math.random()*3),
+      color: "blue",
+      radius: 15,
+      game: game,
     }
-};
+    super(options)
+  }
 
-Tornado.prototype.avoidTornados = function (otherObject) {
-  
+  collideWith (otherObject) {
+    if (otherObject instanceof Ship) {
+      otherObject.vel = Util.randomVec(Math.random()*6);
+      otherObject.health -= 20;
+      }
+  }
 }
 
 module.exports = Tornado;
