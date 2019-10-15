@@ -15,12 +15,6 @@ window.addEventListener('DOMContentLoaded', function(){
 
 });
 
-// window.addEventListnener("keydown", function (e) {
-//   let key = e.keyCode;
-//   if (key === 32) {
-//     togglePause();
-//   }
-// })
 
 window.MovingObject = MovingObject;
 window.Boat = Boat;
