@@ -59,9 +59,13 @@ class Game {
   }
 
   moveObjects () {
-    this.allObjects().forEach(function(obj) {
-      obj.move(ctx);
-    });
+    if (!this.paused) { 
+      this.allObjects().forEach(function(obj) {
+        obj.move(ctx);
+      });
+    } else {
+      return;
+    }
   }
 
   wrap (pos) {
@@ -94,12 +98,8 @@ class Game {
   }
 
   step () {
-    if (!paused) { 
       this.moveObjects();
       this.checkCollisions();
-    } else {
-      return;
-    }
   }
 
   remove (obj) {
@@ -118,7 +118,14 @@ class Game {
     this.enemies.push(obj);
   }
 
-  // 
+  togglePause () {
+    // console.log("hit toggle")
+    if (!this.paused) {
+        this.paused = true;
+      } else if (this.paused) {
+        this.paused= false;
+      }
+  }
 
 }
 
