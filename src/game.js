@@ -4,7 +4,7 @@ const Ship = require("./ship");
 const Bird = require("./bird");
 const Tornado = require("./tornado");
 const Token = require("./token");
-const FerryTerminal = require("./ferry_terminal");
+// const FerryTerminal = require("./ferry_terminal");
 
 class Game {
   constructor () {
@@ -19,6 +19,7 @@ class Game {
     this.addEnemies();
     this.ship = new Ship(this.randomPosition(), this);
     // this.drawScore();
+    this.paused = false;
   }
 
   drawScore() {
@@ -50,10 +51,11 @@ class Game {
   }
 
   draw (ctx) {
-    ctx.clearRect(0, 0, this.DIM_X, this.DIM_Y);
-    this.allObjects().forEach(function(obj) {
-      obj.draw(ctx);
-    });
+      ctx.clearRect(0, 0, this.DIM_X, this.DIM_Y);
+      this.allObjects().forEach(function(obj) {
+        obj.draw(ctx);
+      });
+    
   }
 
   moveObjects () {
@@ -92,8 +94,12 @@ class Game {
   }
 
   step () {
-    this.moveObjects();
-    this.checkCollisions();
+    if (!paused) { 
+      this.moveObjects();
+      this.checkCollisions();
+    } else {
+      return;
+    }
   }
 
   remove (obj) {
@@ -105,11 +111,14 @@ class Game {
   allObjects () {
     let objects = [this.ship];
     return this.enemies.concat(objects);
+    
   }
 
   add () {
     this.enemies.push(obj);
   }
+
+  // 
 
 }
 

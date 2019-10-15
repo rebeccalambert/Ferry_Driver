@@ -15,12 +15,21 @@ class GameView {
       that.game.draw(that.ctx);
     }, 20);
   }
+
+  togglePause () {
+    if (!paused) {
+        this.game.paused = true;
+      } else if (paused) {
+        this.game.paused= false;
+      }
+  }
   
   bindKeyHandlers () {
     key('up', () => {this.game.ship.power([0, -1]);});
     key('down', () => {this.game.ship.power([0, 1]);});
     key('left', () => {this.game.ship.power([-1, 0]);});
     key('right', () => {this.game.ship.power([1, 0]);});
+    key('space', () => {this.game.togglePause()});
   }
 }
 
