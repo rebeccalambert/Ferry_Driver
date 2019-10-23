@@ -17,10 +17,10 @@ class GameView {
   }
   
   bindKeyHandlers () {
-    key('up', () => {this.game.ship.power([0, -1]);});
-    key('down', () => {this.game.ship.power([0, 1]);});
-    key('left', () => {this.game.ship.power([-1, 0]);});
-    key('right', () => {this.game.ship.power([1, 0]);});
+    key('w', () => {this.game.ship.power([0, -1]);});
+    key('s', () => {this.game.ship.power([0, 1]);});
+    key('a', () => {this.game.ship.power([-1, 0]);});
+    key('d', () => {this.game.ship.power([1, 0]);});
     key('space', () => {this.game.togglePause()});
     key('esc', () => {this.game.hitMenu()});
     key('enter', () => {this.game.exitMenu()});
