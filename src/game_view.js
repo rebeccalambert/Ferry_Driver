@@ -22,7 +22,10 @@ class GameView {
     key('left', () => {this.game.ship.power([-1, 0]);});
     key('right', () => {this.game.ship.power([1, 0]);});
     key('space', () => {this.game.togglePause()});
+    key('esc', () => {this.game.hitMenu()});
+    key('enter', () => {this.game.exitMenu()});
   }
+
 }
 
 module.exports = GameView;

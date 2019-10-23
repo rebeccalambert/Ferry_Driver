@@ -19,16 +19,17 @@ class Game {
     this.addEnemies();
     this.ship = new Ship(this.randomPosition(), this);
     // this.drawScore();
+    this.menu = true;
     this.paused = false;
   }
 
-  drawScore() {
-    let canvas = document.getElementById('game-canvas');
-    let ctx = canvas.getContext('2d');
-    ctx.font = "16px Arial";
-    ctx.fillStyle = "#0095DD";
-    ctx.fillText("Score: "+ this.ship.points, 8, 20);
-  }
+  // drawScore() {
+  //   let canvas = document.getElementById('game-canvas');
+  //   let ctx = canvas.getContext('2d');
+  //   ctx.font = "16px Arial";
+  //   ctx.fillStyle = "#0095DD";
+  //   ctx.fillText("Score: "+ this.ship.points, 8, 20);
+  // }
 
   addEnemies() {
     for(let i = 0; i < this.NUM_BIRDS; i++) {
@@ -62,10 +63,19 @@ class Game {
       ctx.fillStyle = "rgba(0, 0, 0, .8)";
       ctx.fillText("PAUSED", this.DIM_X/2 - 90, this.DIM_Y/2)
     } 
+
+    if (this.menu) {
+      ctx.fillStyle = "lightblue";
+      ctx.fillRect(0, 0, this.DIM_X, this.DIM_Y);
+      // ctx.drawImage(boat.jpg, 30, 30)
+      ctx.font="45px Georgia";
+      ctx.fillStyle = "rgba(0, 0, 0, .8)";
+      ctx.fillText("MENU", this.DIM_X/2 - 90, this.DIM_Y/2)
+    }
   }
 
   moveObjects () {
-    if (!this.paused) { 
+    if (!this.paused && !this.menu) { 
       this.allObjects().forEach(function(obj) {
         obj.move(ctx);
       });
@@ -106,6 +116,7 @@ class Game {
   step () {
       this.moveObjects();
       this.checkCollisions();
+      document.querySelector("h3").innerHTML = this.ship.points;
   }
 
   remove (obj) {
@@ -128,8 +139,20 @@ class Game {
     if (!this.paused) {
         this.paused = true;
       } else if (this.paused) {
-        this.paused= false;
+        this.paused = false;
       }
+  }
+
+  hitMenu() {
+    if (!this.menu) {
+      this.menu = true;
+    } 
+  }
+  
+  exitMenu() {
+    if (this.menu) {
+      this.menu = false;
+    } 
   }
 
 }
