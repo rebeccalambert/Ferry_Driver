@@ -111,6 +111,9 @@ class Game {
       if (this.ship.health < 2000) {
         document.querySelector("h2").style.color = '#ac0000'; 
       }
+      if (this.ship.points > 9) {
+        document.querySelector("h3").style.color = 'gold'; 
+      }
   }
 
   remove (obj) {

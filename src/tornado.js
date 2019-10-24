@@ -17,7 +17,7 @@ class Tornado extends MovingObject {
   collideWith (otherObject) {
     if (otherObject instanceof Ship) {
       otherObject.vel = Util.randomVec(Math.random()*6);
-      otherObject.health -= 20;
+      otherObject.health -= 40;
       }
   }
 }

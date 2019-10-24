@@ -22,7 +22,10 @@ class GameView {
     key('a', () => {this.game.ship.power([-1, 0]);});
     key('d', () => {this.game.ship.power([1, 0]);});
     key('space', () => {this.game.togglePause()});
-    key('esc', () => {this.game.hitMenu()});
+    key('esc', () => {
+      this.game.hitMenu(); 
+      this.game = new Game();
+    });
     key('enter', () => {this.game.exitMenu()});
   }
 
