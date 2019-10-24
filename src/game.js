@@ -59,19 +59,20 @@ class Game {
       ctx.fillRect(0, 0, this.DIM_X, this.DIM_Y);
       ctx.font="45px Georgia";
       ctx.fillStyle = "rgba(0, 0, 0, .8)";
-      ctx.fillText("MENU - hit enter to start", this.DIM_X/2 - 90, this.DIM_Y/2)
+      ctx.fillText("MENU - hit enter to start", this.DIM_X/2 - 225, this.DIM_Y/2)
     }
   }
 
   moveObjects () {
-    if (!this.paused && !this.menu) { 
+    if (this.paused || this.menu) { 
+      return;
+    } else {
       this.allObjects().forEach(function(obj) {
         obj.move(ctx);
       });
-    } else {
-      return;
     }
-  }
+  } 
+  
 
   wrap (pos) {
     let MARGIN = 50;
