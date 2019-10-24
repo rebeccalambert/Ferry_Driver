@@ -60,6 +60,16 @@ class Game {
       ctx.font="45px Georgia";
       ctx.fillStyle = "rgba(0, 0, 0, .8)";
       ctx.fillText("MENU - hit enter to start", this.DIM_X/2 - 225, this.DIM_Y/2)
+      document.querySelector("h3").style.color = 'whitesmoke'; 
+      document.querySelector("h2").style.color = 'whitesmoke'; 
+    }
+    if (this.ship.health < 1) {
+      this.hitMenu;
+      ctx.fillStyle = "lightblue";
+      ctx.fillRect(0, 0, this.DIM_X, this.DIM_Y);
+      ctx.font="45px Georgia";
+      ctx.fillStyle = "rgba(0, 0, 0, .8)";
+      ctx.fillText("GAME OVER - press ESC to restart", this.DIM_X/2 - 350, this.DIM_Y/2)
     }
   }
 
