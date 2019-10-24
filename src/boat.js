@@ -18,7 +18,7 @@ class Boat extends MovingObject {
   collideWith (otherObject) {
     if (otherObject instanceof Ship) {
       otherObject.relocate();
-      otherObject.health -=50;
+      otherObject.health -= 1000;
     }
   }
 }

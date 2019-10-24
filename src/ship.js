@@ -14,7 +14,7 @@ class Ship extends MovingObject {
     super(options)
     this.speed = 1;
     this.points = 0;
-    this.health = 100;
+    this.health = 10000;
   }
 
   relocate () {

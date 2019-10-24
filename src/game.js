@@ -117,6 +117,7 @@ class Game {
       this.moveObjects();
       this.checkCollisions();
       document.querySelector("h3").innerHTML = this.ship.points;
+      document.querySelector("h2").innerHTML = this.ship.health;
   }
 
   remove (obj) {
