@@ -18,18 +18,9 @@ class Game {
     this.tokens = [];
     this.addEnemies();
     this.ship = new Ship(this.randomPosition(), this);
-    // this.drawScore();
     this.menu = true;
     this.paused = false;
   }
-
-  // drawScore() {
-  //   let canvas = document.getElementById('game-canvas');
-  //   let ctx = canvas.getContext('2d');
-  //   ctx.font = "16px Arial";
-  //   ctx.fillStyle = "#0095DD";
-  //   ctx.fillText("Score: "+ this.ship.points, 8, 20);
-  // }
 
   addEnemies() {
     for(let i = 0; i < this.NUM_BIRDS; i++) {
@@ -44,7 +35,6 @@ class Game {
     for(let i = 0; i < this.NUM_TOKENS; i++) {
       this.enemies.push(new Token(this.randomPosition(), this));
     }
-    // this.enemies.push(new FerryTerminal(this.randomPosition(), this));
   }
 
   randomPosition () {
@@ -67,7 +57,6 @@ class Game {
     if (this.menu) {
       ctx.fillStyle = "lightblue";
       ctx.fillRect(0, 0, this.DIM_X, this.DIM_Y);
-      // ctx.drawImage(boat.jpg, 30, 30)
       ctx.font="45px Georgia";
       ctx.fillStyle = "rgba(0, 0, 0, .8)";
       ctx.fillText("MENU", this.DIM_X/2 - 90, this.DIM_Y/2)
@@ -116,8 +105,8 @@ class Game {
   step () {
       this.moveObjects();
       this.checkCollisions();
-      document.querySelector("h3").innerHTML = this.ship.points;
       document.querySelector("h2").innerHTML = this.ship.health;
+      document.querySelector("h3").innerHTML = this.ship.points;
   }
 
   remove (obj) {
