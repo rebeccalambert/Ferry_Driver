@@ -108,6 +108,9 @@ class Game {
       this.checkCollisions();
       document.querySelector("h2").innerHTML = this.ship.health;
       document.querySelector("h3").innerHTML = this.ship.points;
+      if (this.ship.health < 2000) {
+        document.querySelector("h2").style.color = '#ac0000'; 
+      }
   }
 
   remove (obj) {

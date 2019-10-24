@@ -44,29 +44,51 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      width: 100px;
     }
 
     .bottom-div {
       padding: 15px;
     }
 
+    .score {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .health {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+
   </style>
   <script src="keymaster.js"></script>
 </head>
 <body>
-  <!-- <span class="side-text">
-    <p>Pause</p>
+  <span class="side-text">
+    <!-- <p>Pause</p>
     <p>Quit</p>
-    <p>Instructions</p>
-  </span> -->
-  <span class="game-content">
-    <h1>Ferry Driver</h1>
-    <div className="score">Score:
+    <p>Instructions</p> -->
+    <div class="score">
+      <div>
+        Score:
+      </div>
       <h3>0</h3>
+      <br>
     </div>
-    <div className="health">Health:
+    <div class="health">
+      <div>
+        Health:
+      </div>
       <h2>10000</h2>
     </div>
+  </span>
+  <span class="game-content">
+    <h1>Ferry Driver</h1>
     <canvas id="game-canvas" width="900" height="600"></canvas>
   <div class="bottom-div">
     Meet the creator
