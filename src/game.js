@@ -52,6 +52,10 @@ class Game {
       ctx.font="45px Georgia";
       ctx.fillStyle = "rgba(0, 0, 0, .8)";
       ctx.fillText("PAUSED", this.DIM_X/2 - 90, this.DIM_Y/2)
+      ctx.fillText("Use arrow keys to move ship (purple).", this.DIM_X/2 - 90, this.DIM_Y/2 - 30)
+      ctx.fillText("Avoid boats (grey), tornadoes (blue), and birds (white).", this.DIM_X/2 - 90, this.DIM_Y/2 - 60)
+      ctx.fillText("Hit 0 health - you lose.", this.DIM_X/2 - 90, this.DIM_Y/2 - 90)
+      ctx.fillText("Collect 10 tokens - you win.", this.DIM_X/2 - 90, this.DIM_Y/2 - 120)
     } 
 
     if (this.menu) {
