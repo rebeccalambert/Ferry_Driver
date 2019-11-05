@@ -15,6 +15,14 @@ class Boat extends MovingObject {
     super(options)
   }
 
+  // draw (ctx) {
+  // let boat_img = new Image();
+  // // boat_img.src = 'boat.png';
+  // // boat_img.onload = function(){
+  //   ctx.drawImage('boat.png', 0, 0);
+  //   }
+  // }
+
   collideWith (otherObject) {
     if (otherObject instanceof Ship) {
       otherObject.relocate();
